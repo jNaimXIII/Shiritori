@@ -16,20 +16,17 @@ interface User {
 ```
 
 ```javascript
-{
+const user = {
     id: "38BBE0BB-0B2F-4139-8E42-8801BCB9F63A",
     name: "Jannatin Naim",
     email: "soup@jannatinnaim.com",
     gamesPlayed: [
         "9EBC630C-CD20-4F5A-A335-057E95189834",
         "DEABF427-BB8C-4B8C-9095-66AA283D4399",
-        "C6AD1FE6-F314-4DDF-94F1-71B5AB278AD7"
+        "C6AD1FE6-F314-4DDF-94F1-71B5AB278AD7",
     ],
-    wordsUsed: [
-        "soup",
-        "good"
-    ]
-}
+    wordsUsed: ["soup", "good"],
+};
 ```
 
 ## Game
@@ -45,19 +42,14 @@ interface Game {
 ```
 
 ```javascript
-{
+const game = {
     id: "9EBC630C-CD20-4F5A-A335-057E95189834",
     players: [
         "38BBE0BB-0B2F-4139-8E42-8801BCB9F63A",
-        "C6AD1FE6-F314-4DDF-94F1-71B5AB278AD7"
+        "C6AD1FE6-F314-4DDF-94F1-71B5AB278AD7",
     ],
-    words: [
-        "soup",
-        "plus",
-        "something",
-        "good"
-    ]
-}
+    words: ["soup", "plus", "something", "good"],
+};
 ```
 
 ## Word
@@ -83,18 +75,16 @@ interface Word {
 ```
 
 ```javascript
-{
+const word = {
     value: "soup",
     definition: {
         noun: "a liquid food made by boiling or simmering meat, fish, or vegetables with various added ingredients.",
-        verb: "increase the power and efficiency of an engine or other machine."
+        verb: "increase the power and efficiency of an engine or other machine.",
     },
-    usedByPlayers: [
-        "38BBE0BB-0B2F-4139-8E42-8801BCB9F63A",
-    ],
+    usedByPlayers: ["38BBE0BB-0B2F-4139-8E42-8801BCB9F63A"],
     usedInGames: [
         "9EBC630C-CD20-4F5A-A335-057E95189834",
-        "C6AD1FE6-F314-4DDF-94F1-71B5AB278AD7"
-    ]
-}
+        "C6AD1FE6-F314-4DDF-94F1-71B5AB278AD7",
+    ],
+};
 ```
