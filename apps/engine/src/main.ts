@@ -3,7 +3,7 @@ const MINIMUM_PLAYER_COUNT = 2;
 type GameState = "lobby" | "playing" | "finished";
 
 class Game<Player, Word> {
-    startLobby() {
+    startLobby(): LobbyingGame<Player, Word> {
         return new LobbyingGame<Player, Word>();
     }
 }
@@ -23,7 +23,7 @@ class LobbyingGame<Player, Word> {
         this.players.add(player);
     }
 
-    startGame() {
+    startGame(): RunningGame<Player, Word> {
         if (this.players.size < MINIMUM_PLAYER_COUNT) throw new Error("not enough players");
 
         return new RunningGame<Player, Word>(this.players);
@@ -81,16 +81,14 @@ class RunningGame<Player, Word> {
 
         this.playerAliveStates.set(this.currentPlayer, false);
 
-        if (this.hasGameEnded()) return;
-
-        this.selectNextPlayer();
+        if (!this.hasGameEnded()) this.selectNextPlayer();
     }
 
-    hasGameEnded() {
+    hasGameEnded(): boolean {
         return [...this.playerAliveStates.values()].filter(Boolean).length === 1;
     }
 
-    getFinishedGame() {
+    getFinishedGame(): FinishedGame<Player, Word> {
         if (!this.hasGameEnded()) throw new Error("game has not ended");
 
         return new FinishedGame<Player, Word>(this.players, this.words, this.playerAliveStates);
