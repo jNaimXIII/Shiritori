@@ -1,0 +1,6 @@
+{
+    "name": "engine",
+    "version": "0.0.1-alpha",
+    "description": "Shiritori game engine.",
+    "main": "src/main.ts"
+}
