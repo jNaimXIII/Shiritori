@@ -1,9 +1,8 @@
-# System files
-.DS_Store
-Thumbs.db
-
 # Dependencies
 node_modules/
+
+# Outputs
+build/
 
 # Monorepo
 .turbo/
