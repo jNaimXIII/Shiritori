@@ -116,36 +116,3 @@ class FinishedGame<Player, Word> {
         this.winner = [...this.playerAliveStates.entries()].filter(([, alive]) => alive)[0][0];
     }
 }
-
-// // DEMO GAME
-// const game = new Game<string, string>();
-
-// const lobbyingGame = game.startLobby();
-
-// lobbyingGame.addPlayer("a");
-// lobbyingGame.addPlayer("b");
-// lobbyingGame.addPlayer("c");
-// lobbyingGame.addPlayer("d");
-
-// const runningGame = lobbyingGame.startGame();
-
-// runningGame.addWord("wa1");
-
-// runningGame.addWord("wb1");
-
-// runningGame.addWord("wc1");
-
-// runningGame.addWord("wd1");
-
-// runningGame.killCurrentPlayer();
-// console.log(runningGame.hasGameEnded());
-
-// runningGame.killCurrentPlayer();
-// console.log(runningGame.hasGameEnded());
-
-// runningGame.killCurrentPlayer();
-// console.log(runningGame.hasGameEnded());
-
-// const finishedGame = runningGame.getFinishedGame();
-
-// console.log(finishedGame);
