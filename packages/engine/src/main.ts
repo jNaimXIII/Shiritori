@@ -12,10 +12,11 @@ type GameState = "lobbying" | "playing" | "finished";
  * const game = new Game<string, string>();
  * const lobby = game.startLobby();
  */
-class Game<Player, Word> {
+export class Game<Player, Word> {
     /**
      * Start a lobby for a game of Shiritori.
-     * @returns {LobbyingGame<Player, Word>} A game of Shiritori that is in the lobbying state.
+     * @returns {LobbyingGame<Player, Word>} A game of Shiritori that is in the
+     * lobbying state.
      */
     startLobby(): LobbyingGame<Player, Word> {
         return new LobbyingGame<Player, Word>();
@@ -24,7 +25,8 @@ class Game<Player, Word> {
 
 /**
  * A game of Shiritori that is in the lobbying state.
- * CAUTION: This class should not be instantiated directly, use `Game.startLobby()` instead.
+ * CAUTION: This class should not be instantiated directly, use
+ * `Game.startLobby()` instead.
  * @param Player The type of the players.
  * @param Word The type of the words.
  * @example
@@ -61,10 +63,12 @@ class LobbyingGame<Player, Word> {
 
     /**
      * Start a running game of Shiritori.
-     * @returns {RunningGame<Player, Word>} A game of Shiritori that is in the playing state.
+     * @returns {RunningGame<Player, Word>} A game of Shiritori that is in the
+     * playing state.
      */
     startGame(): RunningGame<Player, Word> {
-        if (this.players.size < MINIMUM_PLAYER_COUNT) throw new Error("not enough players");
+        if (this.players.size < MINIMUM_PLAYER_COUNT)
+            throw new Error("not enough players");
 
         return new RunningGame<Player, Word>(this.players);
     }
@@ -72,7 +76,8 @@ class LobbyingGame<Player, Word> {
 
 /**
  * A game of Shiritori that is in the playing state.
- * CAUTION: This class should not be instantiated directly, use `LobbyingGame.startGame()` instead.
+ * CAUTION: This class should not be instantiated directly, use
+ * `LobbyingGame.startGame()` instead.
  * @param Player The type of the players.
  * @param Word The type of the words.
  * @example
@@ -132,7 +137,8 @@ class RunningGame<Player, Word> {
     addWord(word: Word) {
         if (this.hasGameEnded()) throw new Error("game has ended");
 
-        if (!this.playerAliveStates.get(this.currentPlayer)) throw new Error("player is dead");
+        if (!this.playerAliveStates.get(this.currentPlayer))
+            throw new Error("player is dead");
         if (this.words.has(word)) throw new Error("word already used");
 
         this.words.add(word);
@@ -170,23 +176,31 @@ class RunningGame<Player, Word> {
      * @returns {boolean} Whether the game has ended.
      */
     hasGameEnded(): boolean {
-        return [...this.playerAliveStates.values()].filter(Boolean).length === 1;
+        return (
+            [...this.playerAliveStates.values()].filter(Boolean).length === 1
+        );
     }
 
     /**
      * Get an instance of a finished Shiritori game.
-     * @returns {FinishedGame<Player, Word>} A game of Shiritori that is in the finished state.
+     * @returns {FinishedGame<Player, Word>} A game of Shiritori that is in the
+     * finished state.
      */
     getFinishedGame(): FinishedGame<Player, Word> {
         if (!this.hasGameEnded()) throw new Error("game has not ended");
 
-        return new FinishedGame<Player, Word>(this.players, this.words, this.playerAliveStates);
+        return new FinishedGame<Player, Word>(
+            this.players,
+            this.words,
+            this.playerAliveStates
+        );
     }
 }
 
 /**
  * A game of Shiritori that is in the finished state.
- * CAUTION: This class should not be instantiated directly, use `RunningGame.getFinishedGame()` instead.
+ * CAUTION: This class should not be instantiated directly, use
+ * `RunningGame.getFinishedGame()` instead.
  * @param Player The type of the players.
  * @param Word The type of the words.
  * @example
@@ -226,7 +240,11 @@ class FinishedGame<Player, Word> {
      */
     winner: Player;
 
-    constructor(players: Set<Player>, words: Set<Word>, playerAliveStates: Map<Player, boolean>) {
+    constructor(
+        players: Set<Player>,
+        words: Set<Word>,
+        playerAliveStates: Map<Player, boolean>
+    ) {
         this.state = "finished";
 
         this.players = players;
@@ -234,6 +252,8 @@ class FinishedGame<Player, Word> {
 
         this.playerAliveStates = playerAliveStates;
 
-        this.winner = [...this.playerAliveStates.entries()].filter(([, alive]) => alive)[0][0];
+        this.winner = [...this.playerAliveStates.entries()].filter(
+            ([, alive]) => alive
+        )[0][0];
     }
 }
