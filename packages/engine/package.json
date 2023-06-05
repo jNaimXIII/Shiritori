@@ -1,13 +1,14 @@
 {
     "name": "engine",
+    "main": "build/common/main.js",
+    "typings": "build/common/main.d.ts",
+    "module": "build/module/main.js",
     "scripts": {
-        "build": "rimraf ./build && tsc",
-        "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/main.ts"
+        "build": "concurrently 'tsc -p tsconfig.json' 'tsc -p tsconfig.module.json'",
+        "dev": "concurrently 'tsc -p tsconfig.json -w' 'tsc -p tsconfig.module.json -w'"
     },
     "devDependencies": {
-        "nodemon": "^2.0.22",
-        "rimraf": "^5.0.1",
-        "ts-node": "^10.9.1",
+        "concurrently": "^8.1.0",
         "typescript": "^5.1.3"
     }
 }
