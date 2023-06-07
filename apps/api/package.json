@@ -1,0 +1,11 @@
+{
+    "name": "api",
+    "main": "build/main.js",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc -w"
+    },
+    "devDependencies": {
+        "typescript": "^5.1.3"
+    }
+}
