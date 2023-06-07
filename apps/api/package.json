@@ -3,10 +3,12 @@
     "main": "build/main.js",
     "scripts": {
         "build": "tsc",
-        "dev": "tsc -w"
+        "dev": "nodemon src/main.ts"
     },
     "devDependencies": {
         "eslint-config-server": "workspace:*",
+        "nodemon": "^2.0.22",
+        "ts-node": "^10.9.1",
         "typescript": "^5.1.3"
     }
 }
