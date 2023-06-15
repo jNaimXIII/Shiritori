@@ -6,8 +6,12 @@
             "outputs": ["build/**"]
         },
         "dev": {
+            "dependsOn": ["^build"],
             "cache": false,
             "persistent": true
+        },
+        "lint": {
+            "dependsOn": ["^build"]
         }
     },
     "globalDependencies": [".env"],

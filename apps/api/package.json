@@ -3,7 +3,8 @@
     "main": "build/main.js",
     "scripts": {
         "build": "tsc",
-        "dev": "nodemon src/main.ts"
+        "dev": "nodemon src/main.ts",
+        "lint": "tsc --noEmit && eslint ."
     },
     "devDependencies": {
         "@types/node": "^20.3.0",
