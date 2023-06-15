@@ -155,7 +155,7 @@ class RunningGame<Player, Word> {
         const players = [...this.players];
 
         do {
-            let index = players.indexOf(this.currentPlayer);
+            const index = players.indexOf(this.currentPlayer);
             this.currentPlayer = players[(index + 1) % players.length];
         } while (!this.playerAliveStates.get(this.currentPlayer));
     }
