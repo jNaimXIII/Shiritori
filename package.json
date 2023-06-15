@@ -2,7 +2,8 @@
     "scripts": {
         "build": "dotenv -- turbo build",
         "dev": "dotenv -- turbo dev",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "lint": "turbo lint"
     },
     "devDependencies": {
         "dotenv-cli": "^7.2.1",

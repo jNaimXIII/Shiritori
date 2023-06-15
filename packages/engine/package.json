@@ -5,7 +5,8 @@
     "module": "build/module/main.js",
     "scripts": {
         "build": "concurrently 'tsc -p tsconfig.json' 'tsc -p tsconfig.module.json'",
-        "dev": "concurrently 'tsc -p tsconfig.json -w' 'tsc -p tsconfig.module.json -w'"
+        "dev": "concurrently 'tsc -p tsconfig.json -w' 'tsc -p tsconfig.module.json -w'",
+        "lint": "tsc --noEmit && eslint ."
     },
     "devDependencies": {
         "concurrently": "^8.1.0",
