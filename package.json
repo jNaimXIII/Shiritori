@@ -1,10 +1,11 @@
 {
     "scripts": {
-        "build": "turbo build",
-        "dev": "turbo dev",
+        "build": "dotenv -- turbo build",
+        "dev": "dotenv -- turbo dev",
         "format": "prettier --write ."
     },
     "devDependencies": {
+        "dotenv-cli": "^7.2.1",
         "prettier": "^2.8.8",
         "turbo": "^1.10.1"
     }

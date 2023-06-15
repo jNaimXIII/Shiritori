@@ -10,3 +10,8 @@ node_modules/
 
 # Outputs
 build/
+
+# Secrets
+.env
+.env.*
+!.env.example

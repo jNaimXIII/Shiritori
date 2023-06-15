@@ -9,5 +9,12 @@
             "cache": false,
             "persistent": true
         }
-    }
+    },
+    "globalDependencies": [".env"],
+    "globalEnv": [
+        "API_DEPLOYMENT_ENVIRONMENT",
+        "API_NEO4J_CONNECTION_URI",
+        "API_NEO4J_USERNAME",
+        "API_NEO4J_PASSWORD"
+    ]
 }
